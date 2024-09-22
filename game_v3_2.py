@@ -2,17 +2,18 @@ import numpy as np
 
 
 def game_core_v3(number: int = 1) -> int:
-    """_summary_
+    """Задаем мин и макс границу предсказания.
+    Далее в зависимости от больше или меньшего значения увеличиваем/уменьшаем границы.
 
     Args:
-        number (int, optional): _description_. Defaults to 1.
+        number (int, optional): Загаданное число. Defaults to 1.
 
     Returns:
-        int: _description_
+        int: Количество попыток
     """
     count = 0
-    low, high = 1, 100  # Начальные границы
-    predict = (low + high) // 2  # Начальное предсказание
+    low, high = 1, 100  
+    predict = (low + high) // 2  
 
     while number != predict:
         count += 1
@@ -21,7 +22,7 @@ def game_core_v3(number: int = 1) -> int:
         else:
             high = predict - 1  # Уменьшаем верхнюю границу
         
-        predict = (low + high) // 2  # Обновляем предсказание   
+        predict = (low + high) // 2    
             
     
     return count
